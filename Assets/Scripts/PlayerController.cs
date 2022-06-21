@@ -7,8 +7,17 @@ public class PlayerController : MonoBehaviour
     float absSpeed;
     Vector3 scale;
     float absScaleX;
+    float vertical;
 
     void Update()
+    {
+        MovePlayer();
+        CrouchPlayer();
+        JumpPlayer();
+        
+    }
+
+    void MovePlayer()
     {
         speed = Input.GetAxisRaw("Horizontal");
         absSpeed = Mathf.Abs(speed);
@@ -23,5 +32,22 @@ public class PlayerController : MonoBehaviour
         else if (speed > 0)
             scale.x = absScaleX;*/
         transform.localScale = scale;
+    }
+
+    void CrouchPlayer()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+            animator.SetBool("Crouch", true);
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+            animator.SetBool("Crouch", false);
+    }
+
+    void JumpPlayer()
+    {
+        vertical = Input.GetAxisRaw("Vertical");
+        if (vertical > 0)
+            animator.SetBool("Jump", true);
+        else
+            animator.SetBool("Jump", false);
     }
 }
