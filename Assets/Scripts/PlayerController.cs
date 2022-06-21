@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
+    public GameObject idleCollider;
+    public GameObject crouchCollider;
     float speed;
     float absSpeed;
     Vector3 scale;
@@ -37,9 +39,19 @@ public class PlayerController : MonoBehaviour
     void CrouchPlayer()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
             animator.SetBool("Crouch", true);
+            idleCollider.SetActive(false);
+            crouchCollider.SetActive(true);
+        }
+            
         if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
             animator.SetBool("Crouch", false);
+            idleCollider.SetActive(true);
+            crouchCollider.SetActive(false);
+        }
+            
     }
 
     void JumpPlayer()
