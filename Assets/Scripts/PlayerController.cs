@@ -3,8 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
-    public GameObject idleCollider;
-    public GameObject crouchCollider;
+    public BoxCollider2D boxCollider2D;
     float speed;
     float absSpeed;
     Vector3 scale;
@@ -16,7 +15,6 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
         CrouchPlayer();
         JumpPlayer();
-        
     }
 
     void MovePlayer()
@@ -29,10 +27,6 @@ public class PlayerController : MonoBehaviour
         scale = transform.localScale;
         absScaleX = Mathf.Abs(scale.x);
         scale.x = (speed < 0) ? -1 * absScaleX : absScaleX;
-        /*if (speed < 0)
-            scale.x = -1 * absScaleX;
-        else if (speed > 0)
-            scale.x = absScaleX;*/
         transform.localScale = scale;
     }
 
@@ -41,17 +35,16 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             animator.SetBool("Crouch", true);
-            idleCollider.SetActive(false);
-            crouchCollider.SetActive(true);
+            boxCollider2D.offset = new Vector2(-0.1047657f, 0.5840551f);
+            boxCollider2D.size = new Vector2(0.7091421f, 1.307235f);
         }
             
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             animator.SetBool("Crouch", false);
-            idleCollider.SetActive(true);
-            crouchCollider.SetActive(false);
+            boxCollider2D.offset = new Vector2(-0.01120976f, 0.984367f);
+            boxCollider2D.size = new Vector2(0.6556816f, 2.107859f);
         }
-            
     }
 
     void JumpPlayer()
