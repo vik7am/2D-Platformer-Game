@@ -4,11 +4,13 @@ public class PlayerController : MonoBehaviour
 {
     public Animator animator;
     public BoxCollider2D boxCollider2D;
+    public Rigidbody2D playerRigidBody;
     public float speed;
+    public float jumpForce;
     Vector3 scale;
     Vector3 position;
-    float vertical;
     float horizontal;
+    bool isGrounded = false;
 
     void Update()
     {
@@ -52,10 +54,20 @@ public class PlayerController : MonoBehaviour
 
     void JumpPlayer()
     {
-        vertical = Input.GetAxisRaw("Vertical");
-        if (vertical > 0)
-            animator.SetBool("Jump", true);
-        else
-            animator.SetBool("Jump", false);
+        if (Input.GetKeyDown(KeyCode.Space))
+            if (isGrounded)
+                playerRigidBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        isGrounded = true;
+        animator.SetBool("Jump", false);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isGrounded = false;
+        animator.SetBool("Jump", true);
     }
 }
