@@ -4,11 +4,11 @@ public class PlayerController : MonoBehaviour
 {
     public Animator animator;
     public BoxCollider2D boxCollider2D;
-    float speed;
-    float absSpeed;
+    public float speed;
     Vector3 scale;
-    float absScaleX;
+    Vector3 position;
     float vertical;
+    float horizontal;
 
     void Update()
     {
@@ -19,14 +19,17 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        speed = Input.GetAxisRaw("Horizontal");
-        absSpeed = Mathf.Abs(speed);
-        animator.SetFloat("Speed", absSpeed);
-        if (speed == 0)
+        horizontal = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
+        // Changing player postion if input is not equal to zero
+        if (horizontal == 0)
             return;
+        position = transform.position;
+        position.x += horizontal * speed * Time.deltaTime;
+        transform.position = position;
+        // Flipping player based on horizontal input
         scale = transform.localScale;
-        absScaleX = Mathf.Abs(scale.x);
-        scale.x = (speed < 0) ? -1 * absScaleX : absScaleX;
+        scale.x = (horizontal < 0) ? -1 * Mathf.Abs(scale.x) : Mathf.Abs(scale.x);
         transform.localScale = scale;
     }
 
