@@ -67,7 +67,15 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
             if (isGrounded)
+            {
                 playerRigidBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                animator.SetBool("Jump", true);
+            }
+    }
+
+    public void playDeathAnimation()
+    {
+        animator.SetBool("Death", true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -79,6 +87,5 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         isGrounded = false;
-        animator.SetBool("Jump", true);
     }
 }
