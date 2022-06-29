@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
     public void playDeathAnimation()
     {
+        animator.SetBool("Jump", false);
         animator.SetBool("Death", true);
     }
 
