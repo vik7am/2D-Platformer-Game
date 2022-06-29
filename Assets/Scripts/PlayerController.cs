@@ -2,15 +2,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator animator;
-    public BoxCollider2D boxCollider2D;
-    public Rigidbody2D playerRigidBody;
-    public float speed;
-    public float jumpForce;
+    Animator animator;
+    BoxCollider2D boxCollider2D;
+    Rigidbody2D playerRigidBody;
     Vector3 scale;
     Vector3 position;
     float horizontal;
     bool isGrounded = false;
+    public float speed;
+    public float jumpForce;
+    Vector2 idleOffset = new Vector2(0f, 1f);
+    Vector2 idleSize = new Vector2(0.6f, 2.1f);
+    Vector2 crouchOffset = new Vector2(-0.1f, 0.6f);
+    Vector2 crouchSize = new Vector2(1f, 1.3f);
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
+        playerRigidBody = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
@@ -40,15 +51,15 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             animator.SetBool("Crouch", true);
-            boxCollider2D.offset = new Vector2(-0.1047657f, 0.5840551f);
-            boxCollider2D.size = new Vector2(0.7091421f, 1.307235f);
+            boxCollider2D.offset = crouchOffset;
+            boxCollider2D.size = crouchSize;
         }
             
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             animator.SetBool("Crouch", false);
-            boxCollider2D.offset = new Vector2(-0.01120976f, 0.984367f);
-            boxCollider2D.size = new Vector2(0.6556816f, 2.107859f);
+            boxCollider2D.offset = idleOffset;
+            boxCollider2D.size = idleSize;
         }
     }
 
