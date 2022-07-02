@@ -34,7 +34,7 @@ public class KeyController : MonoBehaviour
         Color color = sprite.color;
         float alpha = sprite.color.a;
         alpha -= (1 / fadeOutTime) * Time.deltaTime;
-        Mathf.Clamp(alpha, 0, 1);
+        alpha = Mathf.Clamp(alpha, 0, 1);
         color.a = alpha;
         sprite.color = color;
     }
