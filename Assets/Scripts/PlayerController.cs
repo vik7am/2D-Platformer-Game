@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     Vector3 position;
     float horizontal;
     bool isGrounded = false;
+    public ScoreController scoreController;
     public float speed;
     public float jumpForce;
     Vector2 idleOffset = new Vector2(0f, 1f);
@@ -77,6 +78,11 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetBool("Jump", false);
         animator.SetBool("Death", true);
+    }
+
+    public void PickUpKey(int score)
+    {
+        scoreController.IncreseScore(score);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
