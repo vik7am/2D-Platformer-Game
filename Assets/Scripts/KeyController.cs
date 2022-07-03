@@ -6,11 +6,13 @@ public class KeyController : MonoBehaviour
     public float moveUpSpeed = 1.5f;
     public float fadeOutTime = 1f;
     bool isCollected = false;
-    SpriteRenderer sprite;
+    //SpriteRenderer sprite;
+    Animator animator;
 
     private void Awake()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        //sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -18,7 +20,7 @@ public class KeyController : MonoBehaviour
         if (isCollected)
         {
             MoveUp();
-            Fade();
+            //Fade();
         }
     }
 
@@ -29,7 +31,7 @@ public class KeyController : MonoBehaviour
         transform.position = position;
     }
 
-    void Fade()
+    /*void Fade()
     {
         Color color = sprite.color;
         float alpha = sprite.color.a;
@@ -37,7 +39,7 @@ public class KeyController : MonoBehaviour
         alpha = Mathf.Clamp(alpha, 0, 1);
         color.a = alpha;
         sprite.color = color;
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -45,6 +47,7 @@ public class KeyController : MonoBehaviour
         if (player != null)
         {
             player.PickUpKey(score);
+            animator.SetBool("collected", true);
             isCollected = true;
             Destroy(gameObject, fadeOutTime);
         }
