@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     bool moveForward;
     int direction;
     public int speed = 2;
+    public int damage = 1;
 
     private void Awake()
     {
@@ -52,6 +53,15 @@ public class EnemyController : MonoBehaviour
                 direction = 1;
                 transform.localScale = new Vector3(1, 1, 1);
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if(player != null)
+        {
+            player.takeDamage(damage);
         }
     }
 }

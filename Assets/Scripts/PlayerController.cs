@@ -7,11 +7,16 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D playerRigidBody;
     Vector3 scale;
     Vector3 position;
+    bool isAlive;
     float horizontal;
-    bool isGrounded = false;
+    bool isGrounded;
+    int availableHearts;
     public ScoreController scoreController;
+    public HealthUIController healthUI;
+    public int hearts;
     public float speed;
     public float jumpForce;
+    
     Vector2 idleOffset = new Vector2(0f, 1f);
     Vector2 idleSize = new Vector2(0.6f, 2.1f);
     Vector2 crouchOffset = new Vector2(-0.1f, 0.6f);
@@ -24,8 +29,17 @@ public class PlayerController : MonoBehaviour
         playerRigidBody = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        isAlive = true;
+        isGrounded = false;
+        availableHearts = hearts;
+    }
+
     void Update()
     {
+        if (isAlive == false)
+            return;
         MovePlayer();
         CrouchPlayer();
         JumpPlayer();
@@ -85,6 +99,23 @@ public class PlayerController : MonoBehaviour
         scoreController.IncreseScore(score);
     }
 
+    public void takeDamage(int damage)
+    {
+        if (isAlive == false)
+            return;
+        availableHearts -= damage;
+        if(availableHearts > 0)
+        {
+            healthUI.RemoveHeart(availableHearts);
+        }
+        else
+        {
+            healthUI.RemoveHeart(0);
+            isAlive = false;
+            animator.SetBool("Death", true);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isGrounded = true;
@@ -93,6 +124,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.gameObject.GetComponent<EnemyController>() != null)
+            return;
         isGrounded = false;
     }
 }
