@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class RestartLevel : MonoBehaviour
 {
@@ -10,6 +9,6 @@ public class RestartLevel : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Utils.RestartCurrentLevel();
     }
 }
