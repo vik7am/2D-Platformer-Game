@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
         if(availableHearts > 0)
         {
             healthUI.RemoveHeart(availableHearts);
+            animator.SetTrigger("Hurt");
         }
         else
         {
