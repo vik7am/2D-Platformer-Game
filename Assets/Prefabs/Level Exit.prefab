@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4392913234988492787}
   - component: {fileID: 2308763333247076123}
   m_Layer: 0
-  m_Name: Level Manager
+  m_Name: Level Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

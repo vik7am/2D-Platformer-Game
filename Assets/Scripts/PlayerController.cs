@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+            Utils.RestartCurrentLevel();
         if (isAlive == false)
             return;
         MovePlayer();
@@ -112,6 +114,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             healthUI.RemoveHeart(0);
+            scoreController.GameOver();
             isAlive = false;
             animator.SetBool("Death", true);
         }

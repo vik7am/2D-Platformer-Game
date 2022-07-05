@@ -22,6 +22,11 @@ public class ScoreController : MonoBehaviour
         UpdateUI();
     }
 
+    public void GameOver()
+    {
+        scoreText.text = "Game Over\nPress R to Restart";
+    }
+
     private void UpdateUI()
     {
         scoreText.text = "Score : " + totalScore;
