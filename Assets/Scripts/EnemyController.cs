@@ -8,9 +8,11 @@ public class EnemyController : MonoBehaviour
     int direction;
     public int speed = 2;
     public int damage = 1;
+    Animator animator;
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         startPosition = transform.GetChild(0).transform.position;
         endPosition = transform.GetChild(1).transform.position;
     }
@@ -61,6 +63,11 @@ public class EnemyController : MonoBehaviour
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         if(player != null)
         {
+            float playerX = player.transform.position.x;
+            float enemyX = transform.position.x;
+            if ((moveForward && enemyX > playerX) || (!moveForward && enemyX < playerX))
+                return;
+            animator.SetTrigger("Attack");
             player.takeDamage(damage);
         }
     }
