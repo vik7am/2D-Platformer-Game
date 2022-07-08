@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     int availableHearts;
     public ScoreController scoreController;
     public HealthUIController healthUI;
+    public GameOverUIController gameOver;
     public int hearts;
     public float speed;
     public float jumpForce;
@@ -38,8 +40,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-            Utils.RestartCurrentLevel();
         if (isAlive == false)
             return;
         MovePlayer();
@@ -114,11 +114,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             healthUI.RemoveHeart(0);
-            scoreController.GameOver();
+            gameOver.showGameOverScreen();
             isAlive = false;
-            animator.SetBool("Death", true);
+            //animator.SetBool("Death", true);
         }
     }
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
