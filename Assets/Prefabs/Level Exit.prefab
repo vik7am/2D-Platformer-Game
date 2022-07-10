@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4392913234988492788}
   - component: {fileID: 4392913234988492787}
-  - component: {fileID: 2308763333247076123}
+  - component: {fileID: 3225916385845716826}
   m_Layer: 0
   m_Name: Level Exit
   m_TagString: Untagged
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
---- !u!114 &2308763333247076123
+--- !u!114 &3225916385845716826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,6 +67,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4392913234988492786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7448f8c43d8fa2e47b807a87e672c330, type: 3}
+  m_Script: {fileID: 11500000, guid: 052753d0491da6b4fa60d9b08f6d9a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

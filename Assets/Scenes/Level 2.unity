@@ -150,7 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 170898280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96093b526fbb5ca4f8c3087d26f0c674, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d67ddd4021013047aff5d9269ffc538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &170898282
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 1661887474}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
