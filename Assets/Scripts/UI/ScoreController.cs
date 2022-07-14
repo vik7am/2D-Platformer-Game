@@ -13,7 +13,6 @@ public class ScoreController : MonoBehaviour
     void Start()
     {
         totalScore = 0;
-        UpdateUI();
     }
 
     public void IncreseScore(int score)

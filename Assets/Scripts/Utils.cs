@@ -17,6 +17,11 @@ public class Utils
 
     public static void RestartCurrentLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(getCurrentLevel());
+    }
+
+    public static int getCurrentLevel()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
     }
 }

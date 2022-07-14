@@ -24,6 +24,7 @@ public class GameOverUIController : MonoBehaviour
 
     void QuitGame()
     {
+        PlayerPrefs.SetInt("CURRENT_LEVEL", Utils.getCurrentLevel());
         Utils.LoadLevel(0);
     }
 }

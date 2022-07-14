@@ -3,18 +3,27 @@ using UnityEngine.UI;
 
 public class LobbyUIManager : MonoBehaviour
 {
-    public Button startButton;
+    public Button continueButton;
+    public Button selectLevel;
     public Button exitButton;
+    public GameObject levelPanel;
 
     void Awake()
     {
-        startButton.onClick.AddListener(StartGame);
+        continueButton.onClick.AddListener(ContinueGame);
+        selectLevel.onClick.AddListener(SelectLevel);
         exitButton.onClick.AddListener(ExitGame);
     }
 
-    void StartGame()
+    void ContinueGame()
     {
-        Utils.LoadLevel(1);
+        int currentLevel = PlayerPrefs.GetInt("CURRENT_LEVEL", 1);
+        Utils.LoadLevel(currentLevel);
+    }
+
+    void SelectLevel()
+    {
+        levelPanel.SetActive(true);
     }
 
     void ExitGame()
