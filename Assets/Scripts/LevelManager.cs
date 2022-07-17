@@ -19,6 +19,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SetLevelStatus(Level.LOBBY, LevelStatus.COMPLETED);
+        SetLevelStatus(Level.LEVEL1, LevelStatus.UNLOCKED);
+    }
+
     public LevelStatus GetLevelStatus(Level level)
     {
         LevelStatus levelStatus = (LevelStatus)PlayerPrefs.GetInt("Level" + level, 0);
@@ -28,5 +34,20 @@ public class LevelManager : MonoBehaviour
     public void SetLevelStatus(Level level, LevelStatus levelStatus)
     {
         PlayerPrefs.SetInt("Level" + level, (int)levelStatus);
+    }
+
+    public void LevelCompleted()
+    {
+        int currentLevel = Utils.getCurrentLevel();
+        SetLevelStatus((Level)currentLevel, LevelStatus.COMPLETED);
+        SetLevelStatus((Level)(++currentLevel), LevelStatus.UNLOCKED);
+        Utils.LoadNextLevel();
+    }
+
+    [ContextMenu("Reset Game Data")]
+    public void ResetGameData()
+    {
+        PlayerPrefs.DeleteAll();
+        Debug.Log("Game Reset Sucessful");
     }
 }

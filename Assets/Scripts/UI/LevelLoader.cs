@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
-    enum Level {LEVEL1 = 1, LEVEL2 = 2, LEVEL3 = 3, LEVEL4 = 4};
     Button button;
     [SerializeField] Level level;
 
@@ -13,8 +12,15 @@ public class LevelLoader : MonoBehaviour
         button.onClick.AddListener(LoadSelectedLevel);
     }
 
+    void Start()
+    {
+        if(LevelManager.Instance.GetLevelStatus(level) == LevelStatus.LOCKED)
+            button.interactable = false;
+    }
+
     void LoadSelectedLevel()
     {
+        LevelStatus levelStatus = LevelManager.Instance.GetLevelStatus(level);
         Utils.LoadLevel((int)level);
     }
 }
