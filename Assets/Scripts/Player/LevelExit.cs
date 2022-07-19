@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class LevelExit : MonoBehaviour
 {
+    public LevelCompletedController levelCompletedController;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         LevelManager.Instance.LevelCompleted();
+        levelCompletedController.showLevelCompletedScreen();
     }
 }

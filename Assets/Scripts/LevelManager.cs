@@ -41,7 +41,6 @@ public class LevelManager : MonoBehaviour
         int currentLevel = Utils.getCurrentLevel();
         SetLevelStatus((Level)currentLevel, LevelStatus.COMPLETED);
         SetLevelStatus((Level)(++currentLevel), LevelStatus.UNLOCKED);
-        Utils.LoadNextLevel();
     }
 
     [ContextMenu("Reset Game Data")]
