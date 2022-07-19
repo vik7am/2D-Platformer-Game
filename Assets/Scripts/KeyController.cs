@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class KeyController : MonoBehaviour
 {
-    public int score = 10;
-    public float fadeOutTime = 1f;
+    [SerializeField] int score = 10;
+    [SerializeField] float fadeOutTime = 1f;
     Animator animator;
 
     private void Awake()

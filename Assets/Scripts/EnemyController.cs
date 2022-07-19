@@ -6,8 +6,8 @@ public class EnemyController : MonoBehaviour
     Vector3 endPosition;
     bool moveForward;
     int direction;
-    public int speed = 2;
-    public int damage = 1;
+    [SerializeField] int speed = 2;
+    [SerializeField] int damage = 1;
     Animator animator;
 
     private void Awake()

@@ -12,12 +12,12 @@ public class PlayerController : MonoBehaviour
     float horizontal;
     bool isGrounded;
     int availableHearts;
-    public ScoreController scoreController;
-    public HealthUIController healthUI;
-    public GameOverUIController gameOver;
-    public int hearts;
-    public float speed;
-    public float jumpForce;
+    [SerializeField] ScoreController scoreController;
+    [SerializeField] HealthUIController healthUI;
+    [SerializeField] GameOverUIController gameOver;
+    [SerializeField] int hearts;
+    [SerializeField] float speed;
+    [SerializeField] float jumpForce;
     
     Vector2 idleOffset = new Vector2(0f, 1f);
     Vector2 idleSize = new Vector2(0.6f, 2.1f);

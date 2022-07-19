@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class LobbyUIManager : MonoBehaviour
 {
-    public Button continueButton;
-    public Button selectLevel;
-    public Button exitButton;
-    public GameObject levelPanel;
+    [SerializeField] Button continueButton;
+    [SerializeField] Button selectLevel;
+    [SerializeField] Button exitButton;
+    [SerializeField] GameObject levelPanel;
 
     void Awake()
     {

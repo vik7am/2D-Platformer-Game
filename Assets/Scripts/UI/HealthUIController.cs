@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthUIController : MonoBehaviour
 {
-    public GameObject[] heart;
+    [SerializeField] GameObject[] heart;
 
     public void RemoveHeart(int heartNumber)
     {

@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class GameOverUIController : MonoBehaviour
 {
-    public Button restartButton;
-    public Button quitButton;
+    [SerializeField] Button restartButton;
+    [SerializeField] Button quitButton;
 
     void Awake()
     {

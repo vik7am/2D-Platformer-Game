@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class LevelCompletedController : MonoBehaviour
 {
-    public Button nextLevel;
-    public Button quitButton;
+    [SerializeField] Button nextLevel;
+    [SerializeField] Button quitButton;
 
     void Awake()
     {
