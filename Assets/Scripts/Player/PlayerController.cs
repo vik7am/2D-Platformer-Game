@@ -14,10 +14,12 @@ namespace Platatformer2D
         float horizontal;
         bool isGrounded;
         int availableHearts;
-        [SerializeField] ScoreController scoreController;
+        //int totalScore;
+        /*[SerializeField] ScoreController scoreController;
         [SerializeField] HealthUIController healthUI;
         [SerializeField] GameOverUIController gameOver;
-        [SerializeField] LevelCompletedController levelCompletedController;
+        [SerializeField] LevelCompletedController levelCompletedController;*/
+        [SerializeField] GameUIManager gameUIManager;
         [SerializeField] int hearts;
         [SerializeField] float speed;
         [SerializeField] float jumpForce;
@@ -94,7 +96,9 @@ namespace Platatformer2D
 
         public void PickUpKey(int score)
         {
-            scoreController.IncreseScore(score);
+            ScoreManager.IncreseScore();
+            gameUIManager.updateScoreUI();
+            
         }
 
         public void takeDamage(int damage)
@@ -104,12 +108,14 @@ namespace Platatformer2D
             availableHearts -= damage;
             if (availableHearts > 0)
             {
-                healthUI.RemoveHeart(availableHearts);
+                gameUIManager.updateHealth(availableHearts);
+                //healthUI.RemoveHeart(availableHearts);
                 animator.SetTrigger("Hurt");
             }
             else
             {
-                healthUI.RemoveHeart(0);
+                gameUIManager.updateHealth(0);
+                //healthUI.RemoveHeart(0);
                 KillPlayer();
             }
         }
@@ -126,7 +132,7 @@ namespace Platatformer2D
         {
             animator.SetBool("Death", true);
             yield return new WaitForSeconds(1);
-            gameOver.showGameOverScreen();
+            gameUIManager.showGameOverPanel();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -158,7 +164,7 @@ namespace Platatformer2D
             if (gameTag.compareTag(EnumTag.LEVEL_EXIT))
             {
                 LevelManager.Instance.LevelCompleted();
-                levelCompletedController.showLevelCompletedScreen();
+                gameUIManager.showLevelCompletedPanel();
             }
             else if (gameTag.compareTag(EnumTag.PIT))
             {

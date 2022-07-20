@@ -13,5 +13,10 @@ namespace Platatformer2D
         {
             heart[heartNumber].SetActive(false);
         }
+
+        public void updateHeartUI(int remainingHeart)
+        {
+            heart[remainingHeart].SetActive(false);
+        }
     }
 }

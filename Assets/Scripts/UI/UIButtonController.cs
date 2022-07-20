@@ -20,9 +20,9 @@ namespace Platatformer2D
             {
                 case ButtonType.START : StartGame(); break;
                 case ButtonType.EXIT: ExitGame();  break;
-                case ButtonType.RESTART: break;
-                case ButtonType.QUIT: break;
-                case ButtonType.NEXT_LEVEL: break;
+                case ButtonType.RESTART: RestartGame(); break;
+                case ButtonType.QUIT: QuitLevel(); break;
+                case ButtonType.NEXT_LEVEL:NextLevel(); break;
             }
         }
 

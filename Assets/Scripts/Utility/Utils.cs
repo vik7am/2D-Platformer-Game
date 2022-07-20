@@ -6,6 +6,7 @@ namespace Platatformer2D
     {
         public static void LoadLevel(int level)
         {
+            ScoreManager.ResetScore();
             SceneManager.LoadScene(level);
         }
 
@@ -19,6 +20,7 @@ namespace Platatformer2D
 
         public static void RestartCurrentLevel()
         {
+            ScoreManager.ResetScore();
             SceneManager.LoadScene(getCurrentLevel());
         }
 
