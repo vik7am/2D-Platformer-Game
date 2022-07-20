@@ -1,33 +1,37 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LobbyUIManager : MonoBehaviour
+namespace Platatformer2D
 {
-    [SerializeField] Button continueButton;
-    [SerializeField] Button selectLevel;
-    [SerializeField] Button exitButton;
-    [SerializeField] GameObject levelPanel;
-
-    void Awake()
+    public class LobbyUIManager : MonoBehaviour
     {
-        continueButton.onClick.AddListener(ContinueGame);
-        selectLevel.onClick.AddListener(SelectLevel);
-        exitButton.onClick.AddListener(ExitGame);
-    }
+        [SerializeField] Button continueButton;
+        [SerializeField] Button selectLevel;
+        [SerializeField] Button exitButton;
+        [SerializeField] GameObject levelPanel;
 
-    void ContinueGame()
-    {
-        int currentLevel = PlayerPrefs.GetInt("CURRENT_LEVEL", 1);
-        Utils.LoadLevel(currentLevel);
-    }
+        void Awake()
+        {
+            continueButton.onClick.AddListener(ContinueGame);
+            selectLevel.onClick.AddListener(SelectLevel);
+            exitButton.onClick.AddListener(ExitGame);
+        }
 
-    void SelectLevel()
-    {
-        levelPanel.SetActive(true);
-    }
+        void ContinueGame()
+        {
+            int currentLevel = PlayerPrefs.GetInt("CURRENT_LEVEL", 1);
+            Utils.LoadLevel(currentLevel);
+        }
 
-    void ExitGame()
-    {
-        Application.Quit();
+        void SelectLevel()
+        {
+            levelPanel.SetActive(true);
+        }
+
+        void ExitGame()
+        {
+            Application.Quit();
+        }
     }
 }
+

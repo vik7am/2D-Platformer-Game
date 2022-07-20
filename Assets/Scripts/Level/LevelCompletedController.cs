@@ -1,27 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Platatformer2D
 {
-    public class GameOverUIController : MonoBehaviour
+    public class LevelCompletedController : MonoBehaviour
     {
-        [SerializeField] Button restartButton;
+        [SerializeField] Button nextLevel;
         [SerializeField] Button quitButton;
 
         void Awake()
         {
-            restartButton.onClick.AddListener(RestartGame);
+            nextLevel.onClick.AddListener(StartNextLevel);
             quitButton.onClick.AddListener(QuitGame);
         }
 
-        public void showGameOverScreen()
+        public void showLevelCompletedScreen()
         {
             gameObject.SetActive(true);
         }
 
-        void RestartGame()
+        public void StartNextLevel()
         {
-            Utils.RestartCurrentLevel();
+            Utils.LoadNextLevel();
         }
 
         void QuitGame()
@@ -31,4 +33,3 @@ namespace Platatformer2D
         }
     }
 }
-

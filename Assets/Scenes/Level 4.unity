@@ -1091,6 +1091,7 @@ GameObject:
   - component: {fileID: 625909368}
   - component: {fileID: 625909367}
   - component: {fileID: 625909369}
+  - component: {fileID: 625909370}
   m_Layer: 0
   m_Name: GroundTilemap
   m_TagString: Ground
@@ -1720,6 +1721,19 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &625909370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625909365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a287c6373b7ff4db96feaf4f961e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enumTag: 0
 --- !u!1 &636766563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,9 +1801,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 636766563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d67ddd4021013047aff5d9269ffc538, type: 3}
+  m_Script: {fileID: 11500000, guid: a8a287c6373b7ff4db96feaf4f961e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enumTag: 2
 --- !u!1 &641885434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 641885436}
   - component: {fileID: 641885435}
-  - component: {fileID: 1166998055366009938}
+  - component: {fileID: 641885437}
   m_Layer: 0
   m_Name: Level Exit
   m_TagString: Untagged
@@ -1848,6 +1863,19 @@ Transform:
   m_Father: {fileID: 583639840}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &641885437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641885434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a287c6373b7ff4db96feaf4f961e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enumTag: 1
 --- !u!1 &722412103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3039,19 +3067,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1166998055366009938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641885434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 052753d0491da6b4fa60d9b08f6d9a91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelCompletedController: {fileID: 722412105}
 --- !u!1001 &2577742449131428109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3850,5 +3865,10 @@ PrefabInstance:
       propertyPath: scoreController
       value: 
       objectReference: {fileID: 1391125720}
+    - target: {fileID: 8647747581510790010, guid: 2ded09633648c124d84c46f21c155e1c,
+        type: 3}
+      propertyPath: levelCompletedController
+      value: 
+      objectReference: {fileID: 722412105}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ded09633648c124d84c46f21c155e1c, type: 3}

@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthUIController : MonoBehaviour
+namespace Platatformer2D
 {
-    [SerializeField] GameObject[] heart;
-
-    public void RemoveHeart(int heartNumber)
+    public class HealthUIController : MonoBehaviour
     {
-        heart[heartNumber].SetActive(false);
+        [SerializeField] GameObject[] heart;
+
+        public void RemoveHeart(int heartNumber)
+        {
+            heart[heartNumber].SetActive(false);
+        }
     }
 }

@@ -1,28 +1,32 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreController : MonoBehaviour
+namespace Platatformer2D
 {
-    Text scoreText;
-    int totalScore;
+    public class ScoreController : MonoBehaviour
+    {
+        Text scoreText;
+        int totalScore;
 
-    private void Awake()
-    {
-        scoreText = GetComponent<Text>();
-    }
-    void Start()
-    {
-        totalScore = 0;
-    }
+        private void Awake()
+        {
+            scoreText = GetComponent<Text>();
+        }
+        void Start()
+        {
+            totalScore = 0;
+        }
 
-    public void IncreseScore(int score)
-    {
-        totalScore += score;
-        UpdateUI();
-    }
+        public void IncreseScore(int score)
+        {
+            totalScore += score;
+            UpdateUI();
+        }
 
-    private void UpdateUI()
-    {
-        scoreText.text = "Score : " + totalScore;
+        private void UpdateUI()
+        {
+            scoreText.text = "Score : " + totalScore;
+        }
     }
 }
+
