@@ -2769,9 +2769,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 1429436776}
   levelCompletedPanel: {fileID: 1391805327}
-  healthUI: {fileID: 1718243636}
   scoreText: {fileID: 1391125721}
   currentLevel: {fileID: 1014134094}
+  heart:
+  - {fileID: 57060585}
+  - {fileID: 1237372701}
+  - {fileID: 1028145397}
 --- !u!1 &1718243634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2781,7 +2784,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1718243635}
-  - component: {fileID: 1718243636}
   m_Layer: 5
   m_Name: Health Bar
   m_TagString: Untagged
@@ -2811,22 +2813,6 @@ RectTransform:
   m_AnchoredPosition: {x: 20, y: -20}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1718243636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718243634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffa8e9e47f5d4ed468e0935f9cde1898, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heart:
-  - {fileID: 57060585}
-  - {fileID: 1237372701}
-  - {fileID: 1028145397}
 --- !u!1 &1748076768
 GameObject:
   m_ObjectHideFlags: 0
@@ -3302,7 +3288,7 @@ PrefabInstance:
         type: 3}
       propertyPath: healthUI
       value: 
-      objectReference: {fileID: 1718243636}
+      objectReference: {fileID: 0}
     - target: {fileID: 8647747581510790010, guid: 2ded09633648c124d84c46f21c155e1c,
         type: 3}
       propertyPath: gameUIManager

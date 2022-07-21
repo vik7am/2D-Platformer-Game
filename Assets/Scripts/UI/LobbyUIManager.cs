@@ -7,10 +7,26 @@ namespace Platatformer2D
     {
         [SerializeField] GameObject levelPanel;
         [SerializeField] Button selectLevelButton;
+        [SerializeField] Button startGameButton;
+        Text startGameButtonText;
 
         void Awake()
         {
             selectLevelButton.onClick.AddListener(ToggleLevelUI);
+            startGameButtonText = startGameButton.GetComponentInChildren<Text>();
+        }
+
+        private void Start()
+        {
+            if (LevelManager.Instance.GetLevelStatus(Level.LOBBY) == LevelStatus.LOCKED)
+            {
+                LevelManager.Instance.UnlockFirstLevel();
+                startGameButtonText.text = "NEW GAME";
+            }
+            else
+            {
+                startGameButtonText.text = "CONTINUE";
+            }
         }
 
         void ToggleLevelUI()

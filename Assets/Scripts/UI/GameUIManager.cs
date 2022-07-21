@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +7,9 @@ namespace Platatformer2D
     {
         [SerializeField] GameObject gameOverPanel;
         [SerializeField] GameObject levelCompletedPanel;
-        [SerializeField] HealthUIController healthUI;
         [SerializeField] Text scoreText;
         [SerializeField] Text currentLevel;
+        [SerializeField] GameObject[] heart;
 
         private void Start()
         {
@@ -36,7 +34,7 @@ namespace Platatformer2D
 
         public void updateHealth(int remainingHeart)
         {
-            healthUI.updateHeartUI(remainingHeart);
+            heart[remainingHeart].SetActive(false);
         }
 
         public void updateScoreUI()

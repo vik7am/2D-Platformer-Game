@@ -16,12 +16,10 @@ namespace Platatformer2D
                 DontDestroyOnLoad(gameObject);
             }
             else
-            {
                 Destroy(gameObject);
-            }
         }
 
-        private void Start()
+        public void UnlockFirstLevel()
         {
             SetLevelStatus(Level.LOBBY, LevelStatus.COMPLETED);
             SetLevelStatus(Level.LEVEL1, LevelStatus.UNLOCKED);
@@ -29,7 +27,7 @@ namespace Platatformer2D
 
         public LevelStatus GetLevelStatus(Level level)
         {
-            LevelStatus levelStatus = (LevelStatus)PlayerPrefs.GetInt("Level" + level, 0);
+            LevelStatus levelStatus = (LevelStatus)PlayerPrefs.GetInt("Level" + level, (int)LevelStatus.LOCKED);
             return levelStatus;
         }
 

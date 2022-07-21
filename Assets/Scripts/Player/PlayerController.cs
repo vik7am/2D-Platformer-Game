@@ -14,11 +14,6 @@ namespace Platatformer2D
         float horizontal;
         bool isGrounded;
         int availableHearts;
-        //int totalScore;
-        /*[SerializeField] ScoreController scoreController;
-        [SerializeField] HealthUIController healthUI;
-        [SerializeField] GameOverUIController gameOver;
-        [SerializeField] LevelCompletedController levelCompletedController;*/
         [SerializeField] GameUIManager gameUIManager;
         [SerializeField] int hearts;
         [SerializeField] float speed;
@@ -109,13 +104,11 @@ namespace Platatformer2D
             if (availableHearts > 0)
             {
                 gameUIManager.updateHealth(availableHearts);
-                //healthUI.RemoveHeart(availableHearts);
                 animator.SetTrigger("Hurt");
             }
             else
             {
                 gameUIManager.updateHealth(0);
-                //healthUI.RemoveHeart(0);
                 KillPlayer();
             }
         }
@@ -137,6 +130,10 @@ namespace Platatformer2D
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            if(collision.gameObject.GetComponent<EnemyController>() != null)
+            {
+                animator.SetBool("Jump", false);
+            }
             CustomTag gameTag = collision.gameObject.GetComponent<CustomTag>();
             if (gameTag == null)
                 return;

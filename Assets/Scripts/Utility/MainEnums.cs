@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
-
+﻿
 namespace Platatformer2D
 {
     public enum EnumTag

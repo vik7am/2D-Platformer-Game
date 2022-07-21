@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 450125200}
   - component: {fileID: 450125203}
   m_Layer: 5
-  m_Name: Continue
+  m_Name: Start Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1610,6 +1610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelPanel: {fileID: 1080664965}
   selectLevelButton: {fileID: 1097420363}
+  startGameButton: {fileID: 450125200}
 --- !u!1 &1453667535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,7 +2244,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CONTINUE
+  m_Text: START GAME
 --- !u!222 &2006385774
 CanvasRenderer:
   m_ObjectHideFlags: 0
