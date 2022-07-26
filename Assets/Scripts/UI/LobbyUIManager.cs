@@ -32,6 +32,7 @@ namespace Platatformer2D
         void ToggleLevelUI()
         {
             levelPanel.SetActive(!levelPanel.activeInHierarchy);
+            SoundManager.Instance.Play(AudioType.BUTTON_CLICK);
         }
     }
 }

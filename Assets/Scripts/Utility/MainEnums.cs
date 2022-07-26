@@ -33,4 +33,11 @@ namespace Platatformer2D
         QUIT,
         NEXT_LEVEL
     }
+    public enum AudioType
+    {
+        BUTTON_CLICK,
+        PLAYER_MOVE,
+        PLAYER_DEATH,
+        ENEMY_DEATH
+    }
 }

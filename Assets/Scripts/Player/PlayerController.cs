@@ -46,7 +46,15 @@ namespace Platatformer2D
             animator.SetFloat("Speed", Mathf.Abs(horizontal));
             // Changing player postion if input is not equal to zero
             if (horizontal == 0)
+            {
+                SoundManager.Instance.Stop(AudioType.PLAYER_MOVE);
                 return;
+            }
+            else
+            {
+                SoundManager.Instance.Play(AudioType.PLAYER_MOVE);
+            }
+                
             position = transform.position;
             position.x += horizontal * speed * Time.deltaTime;
             transform.position = position;

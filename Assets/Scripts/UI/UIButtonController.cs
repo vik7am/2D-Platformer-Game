@@ -24,6 +24,7 @@ namespace Platatformer2D
                 case ButtonType.QUIT: QuitLevel(); break;
                 case ButtonType.NEXT_LEVEL:NextLevel(); break;
             }
+            SoundManager.Instance.Play(AudioType.BUTTON_CLICK);
         }
 
         void StartGame()
