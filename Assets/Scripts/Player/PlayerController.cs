@@ -169,14 +169,24 @@ namespace Platatformer2D
                 return;
             if (gameTag.compareTag(EnumTag.LEVEL_EXIT))
             {
+                isAlive = false;
+                audioSource.Stop();
+                animator.SetFloat("Speed", Mathf.Abs(0));
                 LevelManager.Instance.LevelCompleted();
                 SoundManager.Instance.Play(AudioType.LEVEL_COMPLETE);
-                gameUIManager.showLevelCompletedPanel();
+                collision.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                StartCoroutine(LevelCompleted());
             }
             else if (gameTag.compareTag(EnumTag.PIT))
             {
                 KillPlayer();
             }
+        }
+
+        IEnumerator LevelCompleted()
+        {
+            yield return new WaitForSeconds(2);
+            gameUIManager.showLevelCompletedPanel();
         }
     }
 }
