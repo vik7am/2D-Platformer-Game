@@ -3291,6 +3291,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8647747581510790010, guid: 2ded09633648c124d84c46f21c155e1c,
         type: 3}
+      propertyPath: walkingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 13de3c8b19190eb488622c2982f7e977, type: 3}
+    - target: {fileID: 8647747581510790010, guid: 2ded09633648c124d84c46f21c155e1c,
+        type: 3}
       propertyPath: gameUIManager
       value: 
       objectReference: {fileID: 1612297215}

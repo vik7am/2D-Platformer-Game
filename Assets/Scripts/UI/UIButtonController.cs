@@ -24,34 +24,39 @@ namespace Platatformer2D
                 case ButtonType.QUIT: QuitLevel(); break;
                 case ButtonType.NEXT_LEVEL:NextLevel(); break;
             }
-            SoundManager.Instance.Play(AudioType.BUTTON_CLICK);
         }
 
         void StartGame()
         {
             int currentLevel = PlayerPrefs.GetInt("CURRENT_LEVEL", 1);
+            SoundManager.Instance.Play(AudioType.START_LEVEL);
             Utils.LoadLevel(currentLevel);
         }
 
         void ExitGame()
         {
+            SoundManager.Instance.Play(AudioType.BUTTON_CLICK);
             Application.Quit();
         }
 
         void RestartGame()
         {
+            SoundManager.Instance.Play(AudioType.START_LEVEL);
             Utils.RestartCurrentLevel();
         }
 
         void QuitLevel()
         {
+            SoundManager.Instance.Play(AudioType.BUTTON_CLICK);
             PlayerPrefs.SetInt("CURRENT_LEVEL", Utils.getCurrentLevel());
             Utils.LoadLevel(0);
         }
 
         void NextLevel()
         {
+            SoundManager.Instance.Play(AudioType.START_LEVEL);
             Utils.LoadNextLevel();
+            
         }
     }
 }

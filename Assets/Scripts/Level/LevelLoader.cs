@@ -23,6 +23,7 @@ namespace Platatformer2D
         void LoadSelectedLevel()
         {
             LevelStatus levelStatus = LevelManager.Instance.GetLevelStatus(level);
+            SoundManager.Instance.Play(AudioType.START_LEVEL);
             Utils.LoadLevel((int)level);
         }
     }

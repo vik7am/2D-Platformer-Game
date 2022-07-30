@@ -9,6 +9,10 @@ namespace Platatformer2D
         public AudioSource playerSource;
         public AudioClip buttonClick;
         public AudioClip playerWalk;
+        public AudioClip startLevel;
+        public AudioClip levelComplete;
+        public AudioClip levelFail;
+        public AudioClip keyCollected;
         bool playerWalking;
 
         public static SoundManager Instance { get { return instance; } }
@@ -31,18 +35,32 @@ namespace Platatformer2D
             switch (audioType)
             {
                 case AudioType.BUTTON_CLICK: 
-                    gameUISource.PlayOneShot(buttonClick); break;
-                case AudioType.PLAYER_MOVE:
+                    gameUISource.PlayOneShot(buttonClick);
+                    break;
+                case AudioType.START_LEVEL:
+                    gameUISource.PlayOneShot(startLevel);
+                    break;
+                case AudioType.LEVEL_COMPLETE:
+                    gameUISource.PlayOneShot(levelComplete);
+                    break;
+                case AudioType.LEVEL_FAIL:
+                    gameUISource.PlayOneShot(levelFail);
+                    break;
+                case AudioType.KEY_COLLECTED:
+                    gameUISource.PlayOneShot(keyCollected);
+                    break;
+                /*case AudioType.PLAYER_MOVE:
                     if (playerWalking)
                         return;
                     playerWalking = true;
                     playerSource.loop = true;
                     playerSource.clip = playerWalk;
-                    playerSource.Play(); break;
+                    playerSource.Play();
+                    break;*/
             }
         }
 
-        public void Stop(AudioType audioType)
+        /*public void Stop(AudioType audioType)
         {
             switch (audioType)
             {
@@ -52,13 +70,6 @@ namespace Platatformer2D
                     playerWalking = false;
                     playerSource.Stop(); break;
             }
-        }
-    }
-
-    [System.Serializable]
-    public class SoundData
-    {
-        public AudioType audioType;
-        public AudioClip audioClip;
+        }*/
     }
 }

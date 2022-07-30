@@ -7,21 +7,26 @@ namespace Platatformer2D
     {
         Animator animator;
         Rigidbody2D playerRigidBody;
+        AudioSource audioSource;
         Vector3 scale;
         Vector3 position;
         bool isAlive;
         float horizontal;
         bool isGrounded;
         int availableHearts;
+        bool isWalking;
         [SerializeField] GameUIManager gameUIManager;
         [SerializeField] int hearts;
         [SerializeField] float speed;
         [SerializeField] float jumpForce;
+        [Header("Sounds")]
+        [SerializeField]AudioClip walkingSound;
 
         private void Awake()
         {
             animator = GetComponent<Animator>();
             playerRigidBody = GetComponent<Rigidbody2D>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Start()
@@ -47,12 +52,22 @@ namespace Platatformer2D
             // Changing player postion if input is not equal to zero
             if (horizontal == 0)
             {
-                SoundManager.Instance.Stop(AudioType.PLAYER_MOVE);
+                if (isWalking)
+                {
+                    isWalking = false;
+                    audioSource.Stop();
+                }
                 return;
             }
             else
             {
-                SoundManager.Instance.Play(AudioType.PLAYER_MOVE);
+                if (!isWalking)
+                {
+                    isWalking = true;
+                    audioSource.loop = true;
+                    audioSource.clip = walkingSound;
+                    audioSource.Play();
+                }
             }
                 
             position = transform.position;
@@ -85,7 +100,7 @@ namespace Platatformer2D
         {
             ScoreManager.IncreseScore();
             gameUIManager.updateScoreUI();
-            
+            SoundManager.Instance.Play(AudioType.KEY_COLLECTED);
         }
 
         public void takeDamage(int damage)
@@ -111,6 +126,8 @@ namespace Platatformer2D
             animator.SetBool("Jump", false);
             animator.SetBool("Death", true);
             StartCoroutine(PlayDeathAnimation());
+            audioSource.Stop();
+            SoundManager.Instance.Play(AudioType.LEVEL_FAIL);
         }
 
         IEnumerator PlayDeathAnimation()
@@ -153,6 +170,7 @@ namespace Platatformer2D
             if (gameTag.compareTag(EnumTag.LEVEL_EXIT))
             {
                 LevelManager.Instance.LevelCompleted();
+                SoundManager.Instance.Play(AudioType.LEVEL_COMPLETE);
                 gameUIManager.showLevelCompletedPanel();
             }
             else if (gameTag.compareTag(EnumTag.PIT))
