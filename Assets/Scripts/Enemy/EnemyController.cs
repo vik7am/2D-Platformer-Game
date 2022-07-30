@@ -11,10 +11,14 @@ namespace Platatformer2D
         [SerializeField] int speed = 2;
         [SerializeField] int damage = 1;
         Animator animator;
+        AudioSource audioSource;
+        [Header("Sounds")]
+        [SerializeField] AudioClip walkingSound;
 
         private void Awake()
         {
             animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
             startPosition = transform.GetChild(0).transform.position;
             endPosition = transform.GetChild(1).transform.position;
         }
@@ -23,6 +27,9 @@ namespace Platatformer2D
         {
             moveForward = true;
             direction = 1;
+            audioSource.clip = walkingSound;
+            audioSource.loop = true;
+            audioSource.Play();
         }
 
         void Update()
