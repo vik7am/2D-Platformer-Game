@@ -49,27 +49,7 @@ namespace Platatformer2D
                 case AudioType.KEY_COLLECTED:
                     gameUISource.PlayOneShot(keyCollected);
                     break;
-                /*case AudioType.PLAYER_MOVE:
-                    if (playerWalking)
-                        return;
-                    playerWalking = true;
-                    playerSource.loop = true;
-                    playerSource.clip = playerWalk;
-                    playerSource.Play();
-                    break;*/
             }
         }
-
-        /*public void Stop(AudioType audioType)
-        {
-            switch (audioType)
-            {
-                case AudioType.PLAYER_MOVE:
-                    if (!playerWalking)
-                        return;
-                    playerWalking = false;
-                    playerSource.Stop(); break;
-            }
-        }*/
     }
 }

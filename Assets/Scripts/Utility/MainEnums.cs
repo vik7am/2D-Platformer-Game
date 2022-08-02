@@ -36,7 +36,6 @@ namespace Platatformer2D
     public enum AudioType
     {
         BUTTON_CLICK,
-        //PLAYER_MOVE,
         START_LEVEL,
         LEVEL_COMPLETE,
         LEVEL_FAIL,

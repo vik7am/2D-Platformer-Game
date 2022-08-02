@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4299cf34c244a024f9f00e7f705ef14f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  start: {fileID: 2577742449813674849}
+  end: {fileID: 2577742450096906512}
   speed: 2
   damage: 1
   walkingSound: {fileID: 8300000, guid: ccb3ad8b5906ef14d921491eb8be7e2d, type: 3}

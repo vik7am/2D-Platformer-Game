@@ -8,6 +8,8 @@ namespace Platatformer2D
         Vector3 endPosition;
         bool moveForward;
         int direction;
+        [SerializeField] GameObject start;
+        [SerializeField] GameObject end;
         [SerializeField] int speed = 2;
         [SerializeField] int damage = 1;
         Animator animator;
@@ -15,12 +17,15 @@ namespace Platatformer2D
         [Header("Sounds")]
         [SerializeField] AudioClip walkingSound;
 
+        Vector3 faceForward = new Vector3(1, 1, 1);
+        Vector3 faceBackward = new Vector3(-1, 1, 1);
+
         private void Awake()
         {
             animator = GetComponent<Animator>();
             audioSource = GetComponent<AudioSource>();
-            startPosition = transform.GetChild(0).transform.position;
-            endPosition = transform.GetChild(1).transform.position;
+            startPosition = start.transform.position;
+            endPosition = end.transform.position;
         }
 
         void Start()
@@ -53,7 +58,7 @@ namespace Platatformer2D
                 {
                     moveForward = false;
                     direction = -1;
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    transform.localScale = faceBackward;
                 }
             }
             else
@@ -62,7 +67,7 @@ namespace Platatformer2D
                 {
                     moveForward = true;
                     direction = 1;
-                    transform.localScale = new Vector3(1, 1, 1);
+                    transform.localScale = faceForward;
                 }
             }
         }
@@ -82,5 +87,3 @@ namespace Platatformer2D
         }
     }
 }
-
-
