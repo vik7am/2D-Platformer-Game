@@ -10,6 +10,8 @@ namespace Platatformer2D
         [SerializeField] Text scoreText;
         [SerializeField] Text currentLevel;
         [SerializeField] GameObject[] heart;
+        [SerializeField] Image healthbar;
+        [SerializeField] float totalHealth;
 
         private void Start()
         {
@@ -32,9 +34,9 @@ namespace Platatformer2D
             levelCompletedPanel.SetActive(true);
         }
 
-        public void updateHealth(int remainingHeart)
+        public void updateHealth(int currentHealth)
         {
-            heart[remainingHeart].SetActive(false);
+            healthbar.fillAmount = currentHealth / totalHealth;
         }
 
         public void updateScoreUI()

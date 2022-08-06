@@ -125,15 +125,14 @@ namespace Platatformer2D
             isAlive = false;
             animator.SetBool("Jump", false);
             animator.SetBool("Death", true);
-            StartCoroutine(PlayDeathAnimation());
+            playerRigidBody.gravityScale = 0;
+            GetComponent<BoxCollider2D>().enabled = false;
             audioSource.Stop();
             SoundManager.Instance.Play(AudioType.LEVEL_FAIL);
         }
 
-        IEnumerator PlayDeathAnimation()
+        public void showGameOverScreen()
         {
-            animator.SetBool("Death", true);
-            yield return new WaitForSeconds(1);
             gameUIManager.showGameOverPanel();
         }
 

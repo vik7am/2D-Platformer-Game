@@ -5,7 +5,7 @@ namespace Platatformer2D
     public class KeyController : MonoBehaviour
     {
         [SerializeField] int score = 10;
-        [SerializeField] float fadeOutTime = 1f;
+        //[SerializeField] float fadeOutTime = 1f;
         Animator animator;
 
         private void Awake()
@@ -20,8 +20,13 @@ namespace Platatformer2D
             {
                 player.PickUpKey(score);
                 animator.SetBool("collected", true);
-                Destroy(gameObject, fadeOutTime);
+                //Destroy(gameObject, fadeOutTime);
             }
+        }
+
+        public void DestroyKey()
+        {
+            Destroy(gameObject);
         }
     }
 }
