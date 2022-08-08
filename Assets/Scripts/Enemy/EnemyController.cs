@@ -4,28 +4,28 @@ namespace Platatformer2D
 {
     public class EnemyController : MonoBehaviour
     {
-        Vector3 startPosition;
-        Vector3 endPosition;
         bool moveForward;
         int direction;
-        [SerializeField] GameObject start;
-        [SerializeField] GameObject end;
-        [SerializeField] int speed = 2;
-        [SerializeField] int damage = 1;
         Animator animator;
         AudioSource audioSource;
+        float leftEdgePosition;
+        float rightEdgePosition;
+        [SerializeField] Transform leftEdge;
+        [SerializeField] Transform rightEdge;
+        [SerializeField] int speed = 2;
+        [SerializeField] int damage = 1;
         [Header("Sounds")]
         [SerializeField] AudioClip walkingSound;
 
-        Vector3 faceForward = new Vector3(1, 1, 1);
-        Vector3 faceBackward = new Vector3(-1, 1, 1);
+        Vector3 lookRight = new Vector3(1, 1, 1);
+        Vector3 lookLeft = new Vector3(-1, 1, 1);
 
         private void Awake()
         {
             animator = GetComponent<Animator>();
             audioSource = GetComponent<AudioSource>();
-            startPosition = start.transform.position;
-            endPosition = end.transform.position;
+            leftEdgePosition = leftEdge.position.x;
+            rightEdgePosition = rightEdge.position.x;
         }
 
         void Start()
@@ -54,20 +54,20 @@ namespace Platatformer2D
         {
             if (moveForward)
             {
-                if (transform.position.x >= endPosition.x)
+                if (transform.position.x >= rightEdgePosition)
                 {
                     moveForward = false;
                     direction = -1;
-                    transform.localScale = faceBackward;
+                    transform.localScale = lookLeft;
                 }
             }
             else
             {
-                if (transform.position.x <= startPosition.x)
+                if (transform.position.x <= leftEdgePosition)
                 {
                     moveForward = true;
                     direction = 1;
-                    transform.localScale = faceForward;
+                    transform.localScale = lookRight;
                 }
             }
         }

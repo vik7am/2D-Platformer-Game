@@ -56,7 +56,6 @@ namespace Platatformer2D
         {
             SoundManager.Instance.Play(AudioType.START_LEVEL);
             Utils.LoadNextLevel();
-            
         }
     }
 }

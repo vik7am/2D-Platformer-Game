@@ -6,9 +6,9 @@ namespace Platatformer2D
     {
         [SerializeField] EnumTag enumTag;
 
-        public bool compareTag(EnumTag tag)
+        public EnumTag getTag()
         {
-            return enumTag.Equals(tag);
+            return enumTag;
         }
     }
 }

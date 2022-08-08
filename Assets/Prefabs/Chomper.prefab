@@ -135,8 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4299cf34c244a024f9f00e7f705ef14f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: {fileID: 2577742449813674849}
-  end: {fileID: 2577742450096906512}
+  leftEdge: {fileID: 2577742449813674848}
+  rightEdge: {fileID: 2577742450096906515}
   speed: 2
   damage: 1
   walkingSound: {fileID: 8300000, guid: ccb3ad8b5906ef14d921491eb8be7e2d, type: 3}
@@ -246,9 +246,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2577742449813674848}
   m_Layer: 0
-  m_Name: Start Position
+  m_Name: Left Edge
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -276,9 +276,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2577742450096906515}
   m_Layer: 0
-  m_Name: End Position
+  m_Name: Right Edge
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

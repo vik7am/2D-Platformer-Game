@@ -9,7 +9,6 @@ namespace Platatformer2D
         [SerializeField] GameObject levelCompletedPanel;
         [SerializeField] Text scoreText;
         [SerializeField] Text currentLevel;
-        [SerializeField] GameObject[] heart;
         [SerializeField] Image healthbar;
         [SerializeField] float totalHealth;
 

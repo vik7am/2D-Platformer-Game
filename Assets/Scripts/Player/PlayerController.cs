@@ -145,7 +145,7 @@ namespace Platatformer2D
             CustomTag gameTag = collision.gameObject.GetComponent<CustomTag>();
             if (gameTag == null)
                 return;
-            if (gameTag.compareTag(EnumTag.GROUND))
+            if (gameTag.getTag() == EnumTag.GROUND)
             {
                 isGrounded = true;
                 animator.SetBool("Jump", false);
@@ -157,7 +157,7 @@ namespace Platatformer2D
             CustomTag gameTag = collision.gameObject.GetComponent<CustomTag>();
             if (gameTag == null)
                 return;
-            if (gameTag.compareTag(EnumTag.GROUND))
+            if (gameTag.getTag() == EnumTag.GROUND)
                 isGrounded = false;
         }
 
@@ -166,7 +166,7 @@ namespace Platatformer2D
             CustomTag gameTag = collision.gameObject.GetComponent<CustomTag>();
             if (gameTag == null)
                 return;
-            if (gameTag.compareTag(EnumTag.LEVEL_EXIT))
+            if (gameTag.getTag() == EnumTag.LEVEL_EXIT)
             {
                 isAlive = false;
                 audioSource.Stop();
@@ -176,7 +176,7 @@ namespace Platatformer2D
                 collision.gameObject.GetComponentInChildren<ParticleSystem>().Play();
                 StartCoroutine(LevelCompleted());
             }
-            else if (gameTag.compareTag(EnumTag.PIT))
+            else if (gameTag.getTag() == EnumTag.PIT)
             {
                 KillPlayer();
             }
