@@ -13,7 +13,6 @@ namespace Platatformer2D
         public AudioClip levelComplete;
         public AudioClip levelFail;
         public AudioClip keyCollected;
-        bool playerWalking;
 
         public static SoundManager Instance { get { return instance; } }
 

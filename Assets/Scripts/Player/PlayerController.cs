@@ -124,9 +124,8 @@ namespace Platatformer2D
         {
             isAlive = false;
             animator.SetBool("Jump", false);
+            horizontal = 0;
             animator.SetBool("Death", true);
-            playerRigidBody.gravityScale = 0;
-            GetComponent<BoxCollider2D>().enabled = false;
             audioSource.Stop();
             SoundManager.Instance.Play(AudioType.LEVEL_FAIL);
         }
