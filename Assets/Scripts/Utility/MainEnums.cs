@@ -5,7 +5,8 @@ namespace Platatformer2D
     {
         GROUND,
         LEVEL_EXIT,
-        PIT
+        PIT,
+        PLATFORM
     }
 
     public enum Level

@@ -144,7 +144,7 @@ namespace Platatformer2D
             CustomTag gameTag = collision.gameObject.GetComponent<CustomTag>();
             if (gameTag == null)
                 return;
-            if (gameTag.getTag() == EnumTag.GROUND)
+            if (gameTag.getTag() == EnumTag.GROUND || gameTag.getTag() == EnumTag.PLATFORM)
             {
                 isGrounded = true;
                 animator.SetBool("Jump", false);
