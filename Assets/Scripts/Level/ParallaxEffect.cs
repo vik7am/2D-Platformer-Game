@@ -6,11 +6,14 @@ public class ParallaxEffect : MonoBehaviour
 {
     Transform cameraTransform;
     Vector3 lastCameraPosition;
-    [SerializeField] float parallexEffectSpeed;
+    [SerializeField] Vector2 parallexFactor;
     [SerializeField] float width;
 
     void Awake()
     {
+        Vector3 widthVector = new Vector3(width, 0, 0);
+        transform.GetChild(0).transform.position -= widthVector;
+        transform.GetChild(2).transform.position += widthVector;
         //Vector3 s = GetComponent<Renderer>().bounds.size;
         //BoxCollider2D collider2D = GetComponent<BoxCollider2D>();
         //textureUnitSizeX = collider2D.size.x;
@@ -31,7 +34,7 @@ public class ParallaxEffect : MonoBehaviour
     void Update()
     {
         Vector3 deltaMovement = cameraTransform.position - lastCameraPosition;
-        transform.position += new Vector3(deltaMovement.x * parallexEffectSpeed, 0, 0);
+        transform.position += new Vector3(deltaMovement.x * parallexFactor.x, deltaMovement.y * parallexFactor.y, 0);
         lastCameraPosition = cameraTransform.position;
 
         if (Mathf.Abs(cameraTransform.position.x - transform.position.x) >= width)
