@@ -167,9 +167,9 @@ namespace Platatformer2D
                 return;
             if (gameTag.getTag() == EnumTag.LEVEL_EXIT)
             {
-                isAlive = false;
+                //isAlive = false;
                 audioSource.Stop();
-                animator.SetFloat("Speed", Mathf.Abs(0));
+                //animator.SetFloat("Speed", Mathf.Abs(0));
                 LevelManager.Instance.LevelCompleted();
                 SoundManager.Instance.Play(AudioType.LEVEL_COMPLETE);
                 collision.gameObject.GetComponentInChildren<ParticleSystem>().Play();
