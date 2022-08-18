@@ -92,6 +92,7 @@ namespace Platatformer2D
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
                 playerRigidBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                isGrounded = false;
                 animator.SetBool("Jump", true);
             }
         }
@@ -151,15 +152,6 @@ namespace Platatformer2D
             }
         }
 
-        private void OnCollisionExit2D(Collision2D collision)
-        {
-            CustomTag gameTag = collision.gameObject.GetComponent<CustomTag>();
-            if (gameTag == null)
-                return;
-            if (gameTag.getTag() == EnumTag.GROUND)
-                isGrounded = false;
-        }
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
             CustomTag gameTag = collision.gameObject.GetComponent<CustomTag>();
@@ -178,6 +170,19 @@ namespace Platatformer2D
             else if (gameTag.getTag() == EnumTag.PIT)
             {
                 KillPlayer();
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            
+            CustomTag gameTag = collision.gameObject.GetComponent<CustomTag>();
+            if (gameTag == null)
+                return;
+            else if (gameTag.getTag() == EnumTag.PIT)
+            {
+                playerRigidBody.gravityScale = 0;
+                playerRigidBody.velocity = Vector2.zero;
             }
         }
 
