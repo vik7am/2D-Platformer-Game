@@ -82,6 +82,7 @@ namespace Platatformer2D
                 if ((moveForward && enemyX > playerX) || (!moveForward && enemyX < playerX))
                     return;
                 animator.SetTrigger("Attack");
+                SoundManager.Instance.Play(AudioType.ENEMY_ATTACK);
                 player.takeDamage(damage);
             }
         }

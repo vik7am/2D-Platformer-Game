@@ -40,6 +40,7 @@ namespace Platatformer2D
         START_LEVEL,
         LEVEL_COMPLETE,
         LEVEL_FAIL,
-        KEY_COLLECTED
+        KEY_COLLECTED,
+        ENEMY_ATTACK
     }
 }
